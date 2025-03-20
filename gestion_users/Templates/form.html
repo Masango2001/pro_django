@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,10 +8,11 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
 </head>
 <body>
-    <h2>ajouter des etudiants</h2>
-    <form method="POST">
     
-        <label for="name">Nom:</label>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p}}
+         <!-- <label for="name">Nom:</label>
         <input type="text" id="name" name="name" required>
         
         <label for="surname">surname:</label>
@@ -23,8 +25,12 @@
         <input type="email" id="email" name="email" required>
         
         <label for="">email:</label>
-        <input type="email" id="email" name="email" required> 
-        <button type="submit">Envoyer</button>     
+        <input type="email" id="email" name="email" required>  -->
+         
+        
+         <button type="submit">Envoyer</button>
+          <a href="{%url 'home'%}">retour a la liste</a>
+        
     </form>
 </body>
 </html>

@@ -1,19 +1,52 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste des etudiants</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
+    <title>Liste des Étudiants</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <style>
+        .tab{
+            border: 2px;
+        }
+    </style>
 </head>
+
 <body>
-    
-<h1 class="title">liste des etudiants</h1>
 
-<a href="{%url 'home'%}">Ajouter un etudiant</a>
+    <h1 class="title">Liste des Étudiants</h1>
+    <a href="{% url 'create_student' %}" class="btn">Ajouter un Étudiant</a>
 
-        
-<a href="{%url 'service' %}">voir les sercices</a>
+    <table class="tab">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+                <th>Âge</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.id }}</td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.surname }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.age }}</td>
+                <td>
+                    <a href="{% url 'edit_student' student.id %}">Éditer</a>
+                    <a href="{% url 'delete_student' student.id %}">Supprimer</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
 </body>
+
 </html>
