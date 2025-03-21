@@ -6,5 +6,7 @@ class Student(models.Model):
     email=models.EmailField(unique=True)
     age=models.IntegerField()
     
-    def _str_(self):
-        return f"{self.name} {self.surname}"
+    class  Meta:
+        db_table = 'project_django'
+        
+        
