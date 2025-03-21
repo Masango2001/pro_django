@@ -7,6 +7,6 @@ class Student(models.Model):
     age=models.IntegerField()
     
     class  Meta:
-        db_table = 'project_django'
+         db_table = 'Student'
         
         
