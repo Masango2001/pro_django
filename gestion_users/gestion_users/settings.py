@@ -80,12 +80,9 @@ WSGI_APPLICATION = 'gestion_users.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',  # Utilisez le backend MySQL
-        'NAME': 'project_django',  # Remplacez par le nom de votre base
-        'USER': 'root',  # Nom d'utilisateur par défaut de MySQL
-        'PASSWORD': '62889201',  # Laissez vide si vous n'avez pas défini de mot de passe
-        'HOST': 'localhost',  # Adresse du serveur MySQL
-        'PORT': '3306',  # Port par défaut de MySQL
+        'ENGINE': 'django.db.backends.sqlite3',  # Utilisez le backend MySQL
+        'NAME': BASE_DIR/'db.sqlite3',  # Remplacez par le nom de votre base
+          # Port par défaut de MySQL
     }
 }
 

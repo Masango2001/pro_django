@@ -1,12 +1,9 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'base.html' %}
+{% block content %}
+    
+
     <title>Liste des Étudiants</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <style>
         .tab{
             border: 2px;
@@ -18,6 +15,7 @@
 
     <h1 class="title">Liste des Étudiants</h1>
     <a href="{% url 'create_student' %}" class="btn">Ajouter un Étudiant</a>
+   
 
     <table class="tab">
         <thead>
@@ -42,13 +40,12 @@
                 <td>
                     <a href="{% url 'edit_student' student.id %}">Éditer</a>
                     <a href="{% url 'delete_student' student.id %}">Supprimer</a>
+                    
                 </td>
-            
+                  <td><a href="{% url 'logout' %}">Se deconnecter</a> </td>         
           
         </tbody>
         {% endfor %}
     </table>
+    {% endblock content %}
 
-</body>
-
-</html>
