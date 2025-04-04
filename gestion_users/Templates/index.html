@@ -14,7 +14,7 @@
 <body>
 
     <h1 class="title">Liste des Étudiants</h1>
-    <a href="{% url 'create_student' %}" class="btn">Ajouter un Étudiant</a>
+   <button> <a href="{% url 'create_student' %}" class="btn">Ajouter un Étudiant</a></button>
    
 
     <table class="tab">
@@ -38,11 +38,11 @@
                 <td>{{ student.email }}</td>
                 <td>{{ student.age }}</td>
                 <td>
-                    <a href="{% url 'edit_student' student.id %}">Éditer</a>
-                    <a href="{% url 'delete_student' student.id %}">Supprimer</a>
+                    <button><a href="{% url 'edit_student' student.id %}">Éditer</a></button>
+                    <button><a href="{% url 'delete_student' student.id %}">Supprimer</a></button>
                     
                 </td>
-                  <td><a href="{% url 'logout' %}">Se deconnecter</a> </td>         
+                  <td><button><a href="{% url 'logout' %}">Se deconnecter</a></button> </td>         
           
         </tbody>
         {% endfor %}
